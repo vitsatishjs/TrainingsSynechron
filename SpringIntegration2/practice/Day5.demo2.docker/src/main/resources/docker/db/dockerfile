@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk
+COPY hsqldb.jar .
+EXPOSE 9001
+CMD [ "java", "-cp", "./hsqldb.jar","org.hsqldb.Server"]

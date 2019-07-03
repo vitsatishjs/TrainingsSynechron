@@ -1,0 +1,8 @@
+zuul:
+ routes:
+  dbservice:
+   path: /db/**
+   url: http://localhost:9090
+  calcservice:
+   path: /calc/**
+   url: http://localhost:9095
