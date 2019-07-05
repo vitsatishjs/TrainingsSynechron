@@ -1,0 +1,61 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Simple User API",
+        "description": "Simple API build using Node Express"
+    },
+    "schemes": [
+        "https"
+    ],
+    "host": "simple.api",
+    "basePath": "/",
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "Gets all users",
+                "description": "Returns a list containing all users.",
+                "responses": {
+                    "200": {
+                        "description": "A list of User",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Insert users",
+                "description": "Returns a inserted users.",
+                "responses": {
+                    "200": {
+                        "description": "A User",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

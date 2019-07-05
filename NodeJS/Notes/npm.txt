@@ -1,0 +1,12 @@
+npm install --save <packageName>
+npm install --save-dev <packageName>
+
+npm install --save <packageName>@<version>
+npm install --save-dev <packageName>@<version>
+
+npm install --save <packageName>@latest
+npm install --save-dev <packageName>@latest
+
+npm outdated
+
+npm update --save

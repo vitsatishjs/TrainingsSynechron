@@ -1,0 +1,19 @@
+Readable Streams
+	HTTP Request on the server
+	HTTP Response on the client
+	File System streams
+	zlib streams
+	crypto streams
+	TCP Sockets
+	child process stdout and stderr
+	process.stdin
+
+Writable Streams
+	HTTP Request on the client
+	HTTP Response on the server
+	File System streams
+	zlib streams
+	crypto streams
+	TCP Sockets
+	child process stdin
+	process.stdout & process.stderr

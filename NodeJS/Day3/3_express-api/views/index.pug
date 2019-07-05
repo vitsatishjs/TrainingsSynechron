@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1.text-info= title
+  h3.text-warning Simple application using Monk for MongoDB Connection
+  a#getData(href="#") Get Data
+  hr
+  table.table.table-hover
+        thead
+            tr
+                th USERNAME
+                th EMAIL
+                th
+                th
+                th
+        tbody#ut_body
+
+block pagescript
+  script#userTemplate(type="text/x-jsrender")
+    tr
+      td {{:username}}
+      td {{:email}}
+      td 
+        a(href="#") Details
+      td 
+        a(href="#") Edit
+      td 
+        a(href="#") Delete
+  script(src="/javascripts/ajaxDemo.js")

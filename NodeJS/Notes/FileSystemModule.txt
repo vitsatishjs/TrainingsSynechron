@@ -1,0 +1,18 @@
+
+Read files
+	fs.readFile()
+    
+Create files
+	fs.appendFile()
+    	fs.open()
+    	fs.writeFile()
+
+Update files
+	fs.appendFile()
+    	fs.writeFile()
+
+Delete files
+	fs.unlink()
+
+Rename files
+	fs.rename()

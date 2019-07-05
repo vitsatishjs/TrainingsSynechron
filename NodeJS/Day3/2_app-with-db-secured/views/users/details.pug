@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1.text-info= title
+    br
+    h4 User
+        hr
+        dl.dl-horizontal
+            dt Username
+            dd= user.username
+            dt Email
+            dd= user.email
+        p
+            a(href="/users/edit/"+user._id) Edit | 
+            a(href="/users") Back to Users

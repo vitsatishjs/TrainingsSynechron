@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    h1.text-info= title
+    a.btn.btn-info(href="/users/create") Create User
+    br
+    table.table.table-hover
+        thead
+            tr
+                th USERNAME
+                th EMAIL
+                th
+                th
+                th
+        tbody
+            each user in users
+                tr
+                    td= user.username
+                    td= user.email
+                    td
+                        a.text-success(href="/users/details/"+user._id) Details
+                    td
+                        a.text-info(href="/users/edit/"+user._id) Edit
+                    td
+                        a.text-danger(href="/users/delete/"+user._id) Delete
