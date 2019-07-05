@@ -1,0 +1,21 @@
+{
+  "name": "ts_demos",
+  "version": "1.0.0",
+  "description": "Typescript Demos",
+  "private": true,
+  "scripts": {
+    "compile": "tsc -w"
+  },
+  "author": "Synechron",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.3.29",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "@angular/core": "^8.0.0",
+    "core-js": "^2.6.9",
+    "jquery": "^3.4.1",
+    "systemjs": "^0.21.6"
+  }
+}

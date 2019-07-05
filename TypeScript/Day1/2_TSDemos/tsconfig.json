@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "none",
+        "noEmitOnError": true,
+        "removeComments": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "lib": [
+            "dom",
+            "es2015"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ts_demos",
+  "version": "1.0.0",
+  "description": "Typescript Demos",
+  "private": true,
+  "scripts": {
+    "compile": "tsc -w"
+  },
+  "author": "Synechron",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "core-js": "^2.6.9"
+  }
+}
