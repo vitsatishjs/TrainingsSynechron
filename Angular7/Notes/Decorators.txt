@@ -1,0 +1,9 @@
+Annotations & Decorators
+
+Annotations, a way to add metadata to class declarations for use by dependency injection
+
+Decorators are a proposed standard for ECMAScript 7 by Yehuda Katz
+
+Annotations and decorators are nearly the same thing. From a consumer perspective we have exactly the same syntax. The only thing that differs is that we don’t have control over how annotations are added as meta data to our code. Whereas decorators is rather an interface to build something that ends up as annotation. 
+
+TypeScript supports Decorators, and decorators can be added to class, property, method, function parameters

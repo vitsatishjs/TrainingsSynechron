@@ -1,0 +1,41 @@
+<div>
+    <h3 class="row">Dynamic Forms</h3>
+
+    <form class="form-horizontal" [formGroup]="rForm" (submit)="logForm()">
+        <div class="form-group" *ngFor="let prop of objectProps"
+            ngClass="{{rForm.get(prop.key).invalid && (rForm.get(prop.key).dirty || rForm.get(prop.key).touched)?'has-error has-feedback':''}}">
+            <label class="control-label col-sm-2" [attr.for]="prop.key">{{prop.label}}</label>
+
+            <div class="col-sm-6" [ngSwitch]="prop.type">
+                <input class="form-control" *ngSwitchCase="'text'" [formControlName]="prop.key" [id]="prop.key"
+                    [type]="prop.type">
+                <input class="form-control" *ngSwitchCase="'number'" [formControlName]="prop.key" [id]="prop.key"
+                    [type]="prop.type">
+                <input class="form-control" *ngSwitchCase="'password'" [formControlName]="prop.key" [id]="prop.key"
+                    [type]="prop.type">
+                <div *ngSwitchCase="'radio'">
+                    <label class="radio-inline" *ngFor="let option of prop.options">
+                        <input type="radio" [name]="prop.key" [formControlName]="prop.key" [value]="option.value">
+                        {{option.label}}
+                    </label>
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"
+                    ngClass="{{rForm.get(prop.key).invalid && (rForm.get(prop.key).dirty || rForm.get(prop.key).touched)?'glyphicon-remove':''}}"></span>
+                <div *ngIf="rForm.get(prop.key).invalid && (rForm.get(prop.key).dirty || rForm.get(prop.key).touched)">
+                    <div class="help-block with-errors" *ngIf="rForm.get(prop.key).errors.required">
+                        {{prop.label}} is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="reset" class="btn btn-default btn-block">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>

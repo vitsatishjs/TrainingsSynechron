@@ -1,0 +1,96 @@
+const webpackMerge = require('webpack-merge');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const commonConfig = require('./webpack.common.js');
+
+const paths = require('./paths');
+
+module.exports = function (env) {
+    return webpackMerge(commonConfig(env), {
+        mode: 'production',
+
+        module: {
+            rules: [
+                {
+                    test: /\.(css)$/,
+                    use: [MiniCssExtractPlugin.loader, "css-loader"]
+                },
+                {
+                    test: /\.(scss)$/,
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader
+                        },
+                        {
+                            loader: "css-loader"
+                        },
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            loader: "sass-loader"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        output: {
+            path: paths.appBuildPath,
+            publicPath: './',
+            filename: `${paths.outputJSPath}[name].[hash].js`,
+            chunkFilename: `${paths.outputJSPath}[id].[hash].chunk.js`
+        },
+
+        plugins: [
+            new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: `${paths.outputCSSPath}[name].[hash].css`,
+                chunkFilename: `${paths.outputCSSPath}[name].[hash].chunk.css`
+            })
+        ],
+
+        optimization: {
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        parse: {
+                            ecma: 8,
+                        },
+                        compress: {
+                            ecma: 5,
+                            warnings: false,
+                            comparisons: false,
+                            inline: 2,
+                        },
+                        mangle: {
+                            safari10: true,
+                        },
+                        output: {
+                            ecma: 5,
+                            comments: false,
+                            ascii_only: true,
+                        },
+                    },
+                    parallel: true,
+                    cache: true,
+                    sourceMap: false,
+                }),
+                new OptimizeCSSAssetsPlugin({
+                    cssProcessor: require('cssnano'),
+                    cssProcessorOptions: { discardComments: { removeAll: true } }
+                })
+            ]
+        }
+    });
+}

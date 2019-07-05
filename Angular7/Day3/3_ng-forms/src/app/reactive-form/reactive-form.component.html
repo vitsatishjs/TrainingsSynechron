@@ -1,0 +1,71 @@
+<div>
+    <h3 class="row">Reactive Forms</h3>
+    <form class="form-horizontal" [formGroup]="regForm" (submit)="logForm()">
+        <div class="form-group" [ngClass]="{'has-error': frm.firstname.touched && frm.firstname.invalid}">
+            <label for="firstname" class="control-label col-sm-2">Firstname: </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="firstname" id="firstname" autofocus>
+            </div>
+            <div class="col-sm-4 help-block" *ngIf="frm.firstname.touched && frm.firstname.invalid">
+                <p>Firstname is required.</p>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': frm.lastname.touched && frm.lastname.invalid}">
+            <label for="lastname" class="control-label col-sm-2">Lastname: </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="lastname" id="lastname">
+            </div>
+            <div class="col-sm-4 help-block" *ngIf="frm.lastname.touched && frm.lastname.invalid">
+                <p *ngIf="frm.lastname.errors.required">Lastname is required.</p>
+                <p *ngIf="frm.lastname.errors.minlength">Minlength Error.</p>
+                <p *ngIf="frm.lastname.errors.maxlength">Maxlength Error.</p>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': frm.age.touched && frm.age.invalid}">
+            <label for="age" class="control-label col-sm-2">Age: </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="age" id="age">
+            </div>
+            <div class="col-sm-4 help-block" *ngIf="frm.age.touched && frm.age.invalid">
+                <p *ngIf="frm.age.errors.required">Age is required.</p>
+                <p *ngIf="frm.age.errors.ageRange">Age should be between {{this.minAge}} && {{this.maxAge}}.</p>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': frm.country.touched && frm.country.invalid}">
+            <label for="country" class="control-label col-sm-2">Country: </label>
+            <div class="col-sm-6">
+                <select class="form-control" id="country" formControlName="country">
+                    <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+                </select>
+            </div>
+            <div class="col-sm-4 help-block" *ngIf="frm.country.touched && frm.country.invalid">
+                <p>Please select Country Name.</p>
+            </div>
+        </div>
+        <div formGroupName="address">
+            <div class="form-group" [ngClass]="{'has-error': address.city.touched && address.city.invalid}">
+                <label for="city" class="control-label col-sm-2">City: </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="city" id="city">
+                </div>
+                <div class="col-sm-4 help-block" *ngIf="address.city.touched && address.city.invalid">
+                    <p>City Name is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="zip" class="control-label col-sm-2">Zip: </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="zip" id="zip">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="reset" class="btn btn-default btn-block">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>

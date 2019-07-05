@@ -1,0 +1,39 @@
+<h3>List Component</h3>
+
+<ng-container *ngIf="personList">
+    <!-- <div class="list-group-item" *ngFor="let person of personList" highlight [highlightColor]="'lightgreen'"
+        borderColor="'blue'"> -->
+    <div class="list-group-item" *ngFor="let person of personList" [highlight]="'lightgreen'">
+        <a href="http://www.google.com" (click)="select(person,$event)">{{person}}</a>
+    </div>
+</ng-container>
+
+<h3>Selected: {{selected}}</h3>
+
+<!-- <ng-container *ngIf="personList">
+    <div class="list-group-item" *ngFor="let person of personList">
+        <a href="#" (click)="select(person)">{{person}}</a>
+    </div>
+</ng-container>
+
+<h3>Selected: {{selected}}</h3> -->
+
+<!-- <ng-container *ngIf="personList">
+    <div class="list-group-item" *ngFor="let person of personList">
+        <a href="#">{{person}}</a>
+    </div>
+</ng-container> -->
+
+<!-- <ul class="list-group">
+    <li class="list-group-item" *ngFor="let person of personList">
+        <a href="#">{{person}}</a>
+    </li>
+</ul> -->
+
+<!-- <ul class="list-group">
+    <ng-template ngFor let-person [ngForOf]="personList">
+        <li class="list-group-item">
+            <a href="#">{{person}}</a>
+        </li>
+    </ng-template>
+</ul> -->

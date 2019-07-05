@@ -1,0 +1,13 @@
+Http Client NameSpace
+
+Interceptors allow middleware logic to be inserted into the pipeline
+
+Immutable request/response objects
+
+Progress events for both request upload and response download
+
+Typed, synchronous response body access, including support for JSON body types
+
+JSON is an assumed default and no longer needs to be explicitly parsed
+
+Post-request verification & flush based testing framework

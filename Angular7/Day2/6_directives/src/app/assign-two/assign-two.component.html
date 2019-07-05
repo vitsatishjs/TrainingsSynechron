@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4>Assignment Two</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="itemSelection">Select list:</label>
+            <select class="form-control" id="itemSelection" [(ngModel)]=selected>
+                <option value="">Please select a color</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select>
+        </div>
+    </div>
+    <div class="panel-footer" [style.backgroundColor]="selected">
+        <h4 class="text-info" [ngStyle]="{'color': selected ? 'white' : ''}">Selected: {{selected}}</h4>
+    </div>
+</div>

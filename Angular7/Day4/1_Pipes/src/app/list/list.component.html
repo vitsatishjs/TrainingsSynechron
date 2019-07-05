@@ -1,0 +1,17 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-4">Search Names, which starts with </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]=name>
+        </div>
+    </div>
+</div>
+
+<ul *ngIf="personList">
+    <li class="list-group-item" *ngFor="let person of personList | filter:name">
+        <!-- <li class="list-group-item" *ngFor="let person of personList | slice:0:4"> -->
+        <a href="http://www.google.com" (click)="select(person, $event)">{{person}}</a>
+    </li>
+</ul>
+
+<h3>Selected: {{selectedPerson}}</h3>

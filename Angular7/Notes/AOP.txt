@@ -1,0 +1,5 @@
+Aspect-oriented programming
+
+In computing, aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. 
+
+https://en.wikipedia.org/wiki/Aspect-oriented_programming

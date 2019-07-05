@@ -1,0 +1,21 @@
+1. The injector is responsible for creating service instances and injecting them into component classes.
+
+2. Angular creates injectors for you as it executes the app, starting with the root injector that it creates during the bootstrap process.
+
+3. A provider tells an injector how to create the service. You must configure an injector with a provider before that injector can create a service 
+
+4. A provider can be the service class itself, so that the injector can use new to create an instance.
+
+5. You might also define more than one class to provide the same service in different ways, and configure different injectors with different providers
+
+6. Injectors are inherited, which means that if a given injector can't resolve a dependency, it asks the parent injector to resolve it.
+
+7. A component can get services from its own injector, from the injectors of its component ancestors, from the injector of its parent NgModule, or from the root injector. 
+
+---------------Dependency Provider & Dependency Injector-----------------
+
+A dependency provider configures an injector with a DI token, which that injector uses to provide the concrete, runtime version of a dependency value. 
+
+The injector relies on the provider configuration to create instances of the dependencies that it injects into components, directives, pipes, and other services.
+
+You must configure an injector with a provider, or it won't know how to create the dependency.

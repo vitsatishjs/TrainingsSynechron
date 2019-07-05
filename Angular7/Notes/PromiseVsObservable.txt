@@ -1,0 +1,20 @@
+Promise
+
+A Promise is an object, that represents a value which is not yet in existence.
+
+Emit only single value at a time
+
+Not Cancellable
+
+Do not have any operators to process output
+
+
+Observable
+
+An Observable is an unique Object similar to a Promise that can help in Async Programming.
+
+Emit multiple value over a period of time (Stream of Data)
+
+can be Cancelled
+
+Observable provide multiple operators to process output e.g. map, filter, forEach, retry

@@ -1,0 +1,15 @@
+ngOnChanges 		- called when an input or output binding value changes	- OnChanges
+
+ngOnInit 		- after the first ngOnChanges				- OnInit
+
+ngDoCheck 		- developer's custom change detection			- DoCheck
+
+ngAfterContentInit 	- after component content initialized			- AfterContentInit
+
+ngAfterContentChecked 	- after every check of component content		- AfterContentChecked
+
+ngAfterViewInit 	- after component's view(s) are initialized		- AfterViewInit 
+
+ngAfterViewChecked 	- after every check of a component's view(s)		- AfterViewChecked
+
+ngOnDestroy 		- just before the directive is destroyed.		- OnDestroy

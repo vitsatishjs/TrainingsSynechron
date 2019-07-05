@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4>Assignment Two</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="itemSelection">Select list:</label>
+            <select class="form-control" id="itemSelection" [(ngModel)]=selected>
+                <option value="Item1">Item One</option>
+                <option value="Item2">Item Two</option>
+                <option value="Item3">Item Three</option>
+            </select>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <h4 class="text-info">Selected: {{selected}}</h4>
+    </div>
+</div>
