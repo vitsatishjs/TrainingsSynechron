@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    a(href="/") Index
+    div
+        h4 Employee
+        hr
+        dl.dl-horizontal
+            dt Id
+            dd= employee.id
+            dt Name
+            dd= employee.name
+    

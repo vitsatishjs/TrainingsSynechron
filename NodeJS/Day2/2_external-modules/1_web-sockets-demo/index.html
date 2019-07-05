@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Web Socket Demo</h2>
+    <input type="text" id="message">
+    <input type="button" id="send" value="Send">
+    <input type="button" id="close" value="Close Connection">
+    <br />
+    <div id="conversation"></div>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        };
+
+        var ws;
+
+        function wireEvents() {
+            $('send').addEventListener('click', function () {
+                var msg = $('message');
+                ws.send(msg.value);
+                msg.value = "";
+            });
+
+            $('close').addEventListener('click', function () {
+                ws.close();
+            });
+        }
+
+        function createSpan(text) {
+            var span = document.createElement('span');
+            span.innerHTML = text + "<br/>";
+            return span;
+        }
+
+        window.onload = function(){
+            wireEvents();
+            var url = "ws://localhost:3000";
+            ws = new WebSocket(url, 'echo-protocol');
+
+            var con = $('conversation');
+
+            ws.onopen = function () {
+                con.innerHTML = "Client Connected.....";
+            }
+
+            ws.onclose = function () {
+                con.innerHTML = "Client Disconnected.....";
+            }
+
+            ws.onmessage = function (e) {
+                con.appendChild(createSpan(e.data.toString()));
+            }
+        }
+    </script>
+</body>
+
+</html>

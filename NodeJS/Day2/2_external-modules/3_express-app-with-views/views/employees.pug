@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    p This is a Pug view
+    a(href="/") Index
+    table.table.table-stripped.table-hover
+        thead
+            tr
+                th ID
+                th NAME
+                th 
+                th
+        tbody
+            each emp in empList
+                tr
+                    td= emp.id
+                    td= emp.name
+                    td
+                        a(href="#") Edit
+                    td
+                        a(href="#") Delete
